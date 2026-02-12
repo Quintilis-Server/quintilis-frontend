@@ -1,0 +1,95 @@
+.features {
+    padding: var(--section-padding) 0;
+    position: relative;
+    
+    .features-inner{
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.9s var(--ease-out);
+        
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .pillars-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        
+        .pillar-card{
+            position: relative;
+            background: var(--bg-card);
+            padding: 48px 40px;
+            border: 1px solid var(--border);
+            transition: all var(--transition-slow);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            
+            
+            &.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            &::before {
+                content: "";
+                position:absolute;
+                inset: 0;
+                background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 50%);
+                opacity: 0;
+                transition: opacity var(--transition-medium);
+            }
+            
+            &:hover{
+                border-color: var(--border-hover);
+                background: var(--bg-card-hover);
+                
+                &::before { opacity: 0; }
+                
+                .pillar-line { width: 100%; }
+            }
+            
+            .pillar-icon {
+                color: var(--accent);
+                margin-bottom: 28px;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .pillar-title {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: var(--text-primary);
+                margin-bottom: 16px;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .pillar-desc {
+                font-size: 0.9rem;
+                line-height: 1.7;
+                color: var(--text-secondary);
+                position: relative;
+                z-index: 1;
+            }
+            
+            .pillar-line {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent);
+                transition: width var(--transition-slow);
+            }
+        }
+    }
+}
+@media (max-width: 900px) {
+    .pillars-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
