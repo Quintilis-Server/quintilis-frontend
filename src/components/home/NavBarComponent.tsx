@@ -1,6 +1,7 @@
 import {BaseComponent} from "../BaseComponent.tsx";
 import type {BaseState} from "../../types/PageTypes.ts";
 import "../../stylesheet/NavBarStyle.scss"
+import {FORUM_URL} from "../../Consts.ts";
 
 type State = BaseState & {
     scrolled:boolean;
@@ -43,6 +44,7 @@ export class NavBarComponent extends BaseComponent<object,State>{
                         <a href="#features" onClick={this.closeMenu}>Pilares</a>
                         <a href="#about" onClick={this.closeMenu}>Sobre</a>
                         <a href="#join" onClick={this.closeMenu}>Junte-se</a>
+                        <a href={`${FORUM_URL}`}>Forum</a>
                     </div>
 
                     <a href="#join" className="nav-cta">Jogar</a>
