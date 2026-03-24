@@ -11,6 +11,8 @@ export const FORUM_URL = import.meta.env.VITE_FORUM_URL || "http://localhost:300
 // Map Frontend (map.quintilis.org)
 export const MAP_URL = import.meta.env.VITE_MAP_URL || "http://localhost:3001";
 
+export const ADMIN_URL = import.meta.env.VITE_ADMIN_URL || "http://localhost:5174";
+
 // Rotas de API
 export const API_AUTH_ROUTES = `${AUTH_URL}/auth`; // Direto no Auth Service (ex: /auth/register)
 export const API_OAUTH2_ROUTES = `${AUTH_URL}/oauth2`; // Endpoints OAuth2 (ex: /oauth2/token)

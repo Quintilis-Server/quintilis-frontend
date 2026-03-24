@@ -1,8 +1,13 @@
 import type {BaseProps, PageState} from "../types/PageTypes.ts";
 import {BaseComponent} from "../components/BaseComponent.tsx";
 import type {BaseException} from "../exceptions/BaseException.ts";
+import {UserContext} from "../context/UserContext.tsx";
 
 export abstract class BasePage<P extends BaseProps, S extends PageState> extends BaseComponent<P, S>{
+
+    static contextType = UserContext;
+    declare context: React.ContextType<typeof UserContext>;
+
     public constructor(props: P, initialState: S);
     public constructor(initialState: S);
 
@@ -17,7 +22,21 @@ export abstract class BasePage<P extends BaseProps, S extends PageState> extends
     }
 
     componentDidMount() {
-        document.title = `${this.state.title} - Quintilis`
+        this.updateDocumentTitle();
+    }
+
+    componentDidUpdate(_prevProps: P, prevState: S) {
+        if (prevState.title !== this.state.title) {
+            this.updateDocumentTitle();
+        }
+    }
+
+    private updateDocumentTitle() {
+        if (this.state.title) {
+            document.title = `${this.state.title} - Quintilis`;
+        } else {
+            document.title = "Quintilis";
+        }
     }
 
     protected getError(err: BaseException | null) {

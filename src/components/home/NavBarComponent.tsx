@@ -1,7 +1,11 @@
 import {BaseComponent} from "../BaseComponent.tsx";
 import type {BaseState} from "../../types/PageTypes.ts";
 import "../../stylesheet/NavBarStyle.scss"
-import {FORUM_URL} from "../../Consts.ts";
+import {ADMIN_URL, AUTH_URL, FORUM_URL} from "../../Consts.ts";
+import {AuthService} from "../../service/AuthService.ts";
+import {UserContext} from "../../context/UserContext.tsx";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowRightFromBracket, faUser} from "@fortawesome/free-solid-svg-icons";
 
 type State = BaseState & {
     scrolled:boolean;
@@ -9,6 +13,10 @@ type State = BaseState & {
 }
 
 export class NavBarComponent extends BaseComponent<object,State>{
+
+    static contextType = UserContext;
+    declare context: React.ContextType<typeof UserContext>;
+
     state:State ={
         loading: false,
         err: undefined,
@@ -32,6 +40,7 @@ export class NavBarComponent extends BaseComponent<object,State>{
     }
 
     render() {
+        const {isLoggedIn, isAdmin, logout} = this.context;
         return (
             <nav className="navbar">
                 <div className="navbar-inner container">
@@ -45,9 +54,19 @@ export class NavBarComponent extends BaseComponent<object,State>{
                         <a href="#about" onClick={this.closeMenu}>Sobre</a>
                         <a href="#join" onClick={this.closeMenu}>Junte-se</a>
                         <a href={`${FORUM_URL}`}>Forum</a>
+                        {isLoggedIn && isAdmin && (
+                            <a href={`${ADMIN_URL}`}>Admin</a>
+                        )}
                     </div>
 
-                    <a href="#join" className="nav-cta">Jogar</a>
+                    {isLoggedIn?(
+                        <>
+                            <a className="nav-cta" href={`${AUTH_URL}/account`}><FontAwesomeIcon icon={faUser}/></a>
+                            <div onClick={logout}><FontAwesomeIcon icon={faArrowRightFromBracket}/></div>
+                        </>
+                    ): (
+                        <a href={AuthService.getLoginUrl()}  className="nav-cta">Entrar</a>
+                    )}
 
                     <button className="nav-toggle" onClick={()=>this.setState((e)=>({menuOpen:!e.menuOpen}))}>
                         <span></span>
