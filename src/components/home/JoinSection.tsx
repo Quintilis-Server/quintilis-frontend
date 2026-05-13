@@ -1,7 +1,7 @@
 import {Component, createRef} from "react";
 import "../../stylesheet/JoinStyle.scss"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faDiscord, faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 interface State {
     visible: boolean;
@@ -73,11 +73,11 @@ export class JoinSection extends Component<object, State>{
                     </div>
 
                     <div className="join-links">
-                        <a href="#" className="link-item" target="_blank" rel="noopener">
-                            <FontAwesomeIcon icon={faDiscord}/>
-                            Discord
-                        </a>
-                        <a href="#" className="link-item" target="_blank" rel="noopener">
+                        {/*<a href="#" className="link-item" target="_blank" rel="noopener">*/}
+                        {/*    <FontAwesomeIcon icon={faDiscord}/>*/}
+                        {/*    Discord*/}
+                        {/*</a>*/}
+                        <a href="https://github.com/Quintilis-Server" className="link-item" target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={faGithub}/>
                             GitHub
                         </a>
