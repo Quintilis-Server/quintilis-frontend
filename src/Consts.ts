@@ -17,3 +17,5 @@ export const ADMIN_URL = import.meta.env.VITE_ADMIN_URL || "http://localhost:517
 export const API_AUTH_ROUTES = `${AUTH_URL}/auth`; // Direto no Auth Service (ex: /auth/register)
 export const API_OAUTH2_ROUTES = `${AUTH_URL}/oauth2`; // Endpoints OAuth2 (ex: /oauth2/token)
 export const API_FORUM_ROUTES = `${API_URL}/api/forum`; // Via Gateway
+
+export const CDN_URL = import.meta.env.VITE_CDN_URL || "https://cdn.quintilis.org"

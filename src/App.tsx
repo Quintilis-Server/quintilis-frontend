@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {HomePage} from "./pages/HomePage.tsx";
 import {NotFoundPage} from "./pages/NotFoundPage.tsx";
 import {UserProvider} from "./context/UserContext.tsx";
+import {DownloadVersionsPage} from "./pages/DownloadVersionsPage.tsx";
 
 export default class App extends React.Component{
     render(){
@@ -12,6 +13,7 @@ export default class App extends React.Component{
                     <Routes>
                         <Route path="/" element={<HomePage/>}/>
                         <Route path="/authorized" element={<HomePage />} />
+                        <Route path="/download-versions" element={<DownloadVersionsPage/>}/>
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </Router>

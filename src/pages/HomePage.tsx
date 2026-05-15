@@ -1,11 +1,11 @@
 import {BasePage} from "./BasePage.tsx";
 import type {BaseProps, PageState} from "../types/PageTypes.ts";
 import * as React from "react";
-import {NavBarComponent} from "../components/home/NavBarComponent.tsx";
 import {HeroSection} from "../components/home/HeroSection.tsx";
 import {FeatureSection} from "../components/home/FeatureSection.tsx";
 import {AboutSection} from "../components/home/AboutSection.tsx";
 import {JoinSection} from "../components/home/JoinSection.tsx";
+import {NavBarComponent} from "../components/home/NavBarComponent.tsx";
 
 type State = PageState;
 
@@ -19,7 +19,7 @@ export class HomePage extends BasePage<BaseProps, State>{
     renderContent(): React.JSX.Element {
         return (
             <>
-                <NavBarComponent/>
+                <NavBarComponent fixed={true}/>
                 <main>
                     <HeroSection/>
                     <FeatureSection/>

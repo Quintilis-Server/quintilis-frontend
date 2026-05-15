@@ -45,10 +45,10 @@ export class HeroSection extends Component<object, State>{
                         <a href="#features" className="btn-ghost">Descubra Mais</a>
                     </div>
 
-                    <div className="ip">
-                        <span className="ip-label">IP</span>
-                        <code className="ip-value">play.quintilis.org</code>
-                    </div>
+                    {/*<div className="ip">*/}
+                    {/*    <span className="ip-label">IP</span>*/}
+                    {/*    <code className="ip-value">play.quintilis.org</code>*/}
+                    {/*</div>*/}
 
                     <div className={`scroll-indicator ${this.state.visible ? "visible" : ""}`} >
                         <div className="scroll-line"></div>

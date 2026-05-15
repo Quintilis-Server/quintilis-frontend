@@ -1,7 +1,7 @@
 import {BaseComponent} from "../BaseComponent.tsx";
 import type {BaseState} from "../../types/PageTypes.ts";
 import "../../stylesheet/NavBarStyle.scss"
-import {ADMIN_URL, AUTH_URL, FORUM_URL} from "../../Consts.ts";
+import {ADMIN_URL, AUTH_URL} from "../../Consts.ts";
 import {AuthService} from "../../service/AuthService.ts";
 import {UserContext} from "../../context/UserContext.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -12,7 +12,11 @@ type State = BaseState & {
     menuOpen:boolean;
 }
 
-export class NavBarComponent extends BaseComponent<object,State>{
+type props = {
+    fixed: boolean
+}
+
+export class NavBarComponent extends BaseComponent<props,State>{
 
     static contextType = UserContext;
     declare context: React.ContextType<typeof UserContext>;
@@ -21,7 +25,7 @@ export class NavBarComponent extends BaseComponent<object,State>{
         loading: false,
         err: undefined,
         scrolled: false,
-        menuOpen:false
+        menuOpen:false,
     };
     private handleScroll = () =>{
         this.setState({scrolled: window.scrollY>40})
@@ -41,10 +45,11 @@ export class NavBarComponent extends BaseComponent<object,State>{
 
     render() {
         const {isLoggedIn, isAdmin, logout} = this.context;
+        const {fixed} = this.props
         return (
-            <nav className="navbar">
+            <nav className="navbar" style={{position: fixed ? "fixed": "static" }}>
                 <div className="navbar-inner container">
-                    <a href="#" className="nav-logo">
+                    <a href="/" className="nav-logo">
                         <span className="logo-letter">Q</span>
                         <span className="logo-text">uintilis</span>
                     </a>
@@ -53,7 +58,7 @@ export class NavBarComponent extends BaseComponent<object,State>{
                         <a href="#features" onClick={this.closeMenu}>Pilares</a>
                         <a href="#about" onClick={this.closeMenu}>Sobre</a>
                         <a href="#join" onClick={this.closeMenu}>Junte-se</a>
-                        <a href={`${FORUM_URL}`}>Forum</a>
+                        {/*<a href={`${FORUM_URL}`}>Forum</a>*/}
                         {isLoggedIn && isAdmin && (
                             <a href={`${ADMIN_URL}`}>Admin</a>
                         )}

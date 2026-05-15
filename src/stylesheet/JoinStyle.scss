@@ -61,47 +61,6 @@
             font-weight: 300;
         }
         
-        .join-ip-box{
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 24px 56px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            margin-bottom: 48px;
-            
-            &:hover {
-                border-color: var(--border-hover);
-                background: var(--bg-card-hover);
-                transform: translateY(-2px);
-                box-shadow: 0 8px 40px rgba(139, 140, 199, 0.08);
-            }
-            
-            .ip-text{
-                font-family: var(--font-body);
-                font-size: 1.5rem;
-                font-weight: 400;
-                color: var(--accent);
-                letter-spacing: 0.04em;
-            }
-            
-            .ip-action {
-                font-size: 0.7rem;
-                font-weight: 500;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                color: var(--text-muted);
-                transition: color var(--transition-fast)
-            }
-            &:hover .ip-action {
-                color: var(--text-secondary);
-            }
-        }
-        
         .join-links {
             display: flex;
             align-items: center;
@@ -129,5 +88,46 @@
                 }
             }
         }
+    }
+}
+
+.join-ip-box{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px 56px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: 48px;
+
+    &:hover {
+        border-color: var(--border-hover);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 40px rgba(139, 140, 199, 0.08);
+    }
+
+    .ip-text{
+        font-family: var(--font-body);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+    }
+
+    .ip-action {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        transition: color var(--transition-fast)
+    }
+    &:hover .ip-action {
+        color: var(--text-secondary);
     }
 }

@@ -62,8 +62,14 @@ export class AboutSection extends Component<object, State>{
                         </div>
                         <div className="about-stats">
                             <div className="stat-item">
-                                <span className="stat-value">1.21.4</span>
-                                <span className="stat-label">Versão</span>
+                                <div className="version">
+                                    <span className="stat-value">1.21.4</span>
+                                    <span className="stat-label">Versão</span>
+                                </div>
+                                <a href="/download-versions"
+                                   className="join-ip-box"
+                                   style={{marginBottom: 0}}
+                                >Baixar templates de versões</a>
                             </div>
                             <div className="stat-decoration">
                                 <div className="deco-ring"/>
