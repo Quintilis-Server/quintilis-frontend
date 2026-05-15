@@ -63,7 +63,7 @@ export class AboutSection extends Component<object, State>{
                         <div className="about-stats">
                             <div className="stat-item">
                                 <div className="version">
-                                    <span className="stat-value">1.21.4</span>
+                                    <span className="stat-value">1.21.11</span>
                                     <span className="stat-label">Versão</span>
                                 </div>
                                 <a href="/download-versions"
